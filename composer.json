@@ -1,0 +1,31 @@
+{
+    "name": "aoeng/laravel-admin-advertisement",
+    "description": "laravel-admin 扩展 适用于banner,图片广告,金刚区图标等等",
+    "type": "library",
+    "require": {
+        "php": ">=7.4.0",
+        "laravel/framework": "^8.0.4",
+        "encore/laravel-admin": "1.*",
+        "aoeng/laravel-admin-filesystem": "^1.0",
+        "aoeng/laravel-support": "^1.0"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dang",
+            "email": "yofengge@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Aoeng\\Laravel\\Admin\\Advertisement\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Aoeng\\Laravel\\Admin\\Advertisement\\AdvertisementServiceProvider"
+            ]
+        }
+    }
+}
