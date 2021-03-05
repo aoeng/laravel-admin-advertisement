@@ -6,8 +6,8 @@
         "php": ">=7.4.0",
         "laravel/framework": "^8.0.4",
         "encore/laravel-admin": "1.*",
-        "aoeng/laravel-admin-filesystem": "^1.0",
-        "aoeng/laravel-support": "^1.0"
+        "aoeng/laravel-support": "^1.0",
+        "laravel-admin-ext/grid-lightbox": "^1.0"
     },
     "license": "MIT",
     "authors": [
