@@ -28,9 +28,8 @@ class AdvertisementController extends AdminController
         $grid = new Grid(new Advertisement());
 
         $grid->column('id', __('Id'));
-        $grid->column('type', __('Type'))->using(Advertisement::$typeMap)->label([2 => 'waring']);
+        $grid->column('type', __('Jump type'))->using(Advertisement::$typeMap)->label([2 => 'waring']);
         $grid->column('types')->display(function ($types) {
-
             $types = array_map(function ($type) {
                 return "<span class='label label-success'>{$type['name']}</span>";
             }, $types);
@@ -40,7 +39,7 @@ class AdvertisementController extends AdminController
         $grid->column('title', __('Title'))->filter('like');
         $grid->picture('picture', __('Picture'))->lightbox();
         $grid->column('path', __('Path'));
-        $grid->column('sort', __('Sort'))->sortable();
+        $grid->column('sort', __('Sort'))->sortable()->editable();
         $grid->column('is_display', __('Is display'))->switch();
         $grid->column('created_at', __('Created at'));
         $grid->column('updated_at', __('Updated at'));
@@ -54,7 +53,7 @@ class AdvertisementController extends AdminController
                 $query->whereHas('types', function ($query) {
                     $query->whereIn('flag', $this->input);
                 });
-            }, '类型','flag')->multipleSelect(AdvertisementType::query()->pluck('name', 'flag'));
+            }, '类型', 'flag')->multipleSelect(AdvertisementType::query()->pluck('name', 'flag'));
             $filter->equal('is_display', __('Is display'))->radio([0 => '隐藏', 1 => '显示',]);
         });
 
@@ -93,7 +92,8 @@ class AdvertisementController extends AdminController
     {
         $form = new Form(new Advertisement());
 
-        $form->radio('type', __('Type'))->options(Advertisement::$typeMap)->default(1)->required();
+        $form->radio('type', __('Jump type'))->options(Advertisement::$typeMap)->default(1)->required();
+        $form->multipleSelect('types', __('Types'))->options(AdvertisementType::query()->pluck('name', 'id'))->required();
         $form->text('title', __('Title'))->required();
         $form->image('picture', __('Picture'))->required();
         $form->text('path', __('Path'));
