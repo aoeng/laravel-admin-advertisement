@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
 /**
- * @group 广告图片
+ * @group 广告图片 AdvertisementController
  * Class AdvertisementController
  * @package App\Http\Controllers
  */
