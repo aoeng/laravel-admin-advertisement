@@ -28,7 +28,7 @@ class AdvertisementController extends AdminController
         $grid = new Grid(new Advertisement());
 
         $grid->column('id', __('Id'));
-        $grid->column('type', __('Jump type'))->using(Advertisement::$typeMap)->label([2 => 'waring']);
+        $grid->column('type', __('Type'))->using(Advertisement::$typeMap)->label([2 => 'warning']);
         $grid->column('types')->display(function ($types) {
             $types = array_map(function ($type) {
                 return "<span class='label label-success'>{$type['name']}</span>";
