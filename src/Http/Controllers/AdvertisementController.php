@@ -33,6 +33,7 @@ class AdvertisementController extends Controller
             })
             ->where('is_display', 1)
             ->orderByDesc('sort')
+            ->orderByDesc('created_at')
             ->paginate();
 
         return $this->responseJson($advertisements);
